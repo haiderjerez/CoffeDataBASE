@@ -101,3 +101,24 @@ CREATE TABLE IF NOT EXISTS Productos(
     FOREIGN KEY (PaisDestinado) REFERENCES PaisDestinado(ID),
     FOREIGN KEY (Destinatario_ID) REFERENCES Destinatario(ID),
 );
+
+CREATE TABLE IF NOT EXISTS Provedor_Producto(
+    Provedor_ID INT,
+    Productos_ID INT,
+    FOREIGN KEY (Provedor_ID) REFERENCES Provedor(ID),
+    FOREIGN KEY (Productos_ID) REFERENCES Productos(ID)
+);
+
+CREATE TABLE IF NOT EXISTS PaisExportador_Productos(
+    PaisExportador_ID INT,
+    Productos_ID INT,
+    FOREIGN KEY (PaisExportador_ID) REFERENCES PaisExportador(ID),
+    FOREIGN KEY (Productos_ID) REFERENCES Productos(ID)
+);
+
+CREATE TABLE IF NOT EXISTS PaisDestinado_Productos(
+    PaisDestinado_ID INT,
+    Productos_ID INT,
+    FOREIGN KEY (PaisDestinado_ID) REFERENCES PaisDestinado(ID),
+    FOREIGN KEY (Productos_ID) REFERENCES Productos(ID)
+);
